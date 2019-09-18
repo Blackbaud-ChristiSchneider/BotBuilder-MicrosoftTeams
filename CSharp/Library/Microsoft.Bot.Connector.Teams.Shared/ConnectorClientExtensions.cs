@@ -41,6 +41,7 @@ namespace Microsoft.Bot.Connector
     using Newtonsoft.Json.Linq;
     using Teams;
     using Teams.Models;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Connector client extensions.
@@ -65,13 +66,13 @@ namespace Microsoft.Bot.Connector
         /// <param name="user">User to create conversation with.</param>
         /// <param name="tenantId">TenantId of the user.</param>
         /// <returns>Conversation creation or get response.</returns>
-        public static ConversationResourceResponse CreateOrGetDirectConversation(
+        public static async Task<ConversationResourceResponse> CreateOrGetDirectConversation(
             this IConversations conversationClient,
             ChannelAccount bot,
             ChannelAccount user,
             string tenantId)
         {
-            return conversationClient.CreateConversation(new ConversationParameters()
+            return await conversationClient.CreateConversationAsync(new ConversationParameters()
             {
                 Bot = bot,
                 ChannelData = JObject.FromObject(

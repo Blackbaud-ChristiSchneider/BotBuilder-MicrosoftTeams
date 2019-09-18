@@ -1,13 +1,11 @@
-﻿// Copyright (c) Microsoft. All rights reserved.
+﻿
+//
+// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license.
 //
-// Microsoft Bot Framework: http://botframework.com
 // Microsoft Teams: https://dev.office.com/microsoft-teams
 //
-// Bot Builder SDK GitHub:
-// https://github.com/Microsoft/BotBuilder
-//
-// Bot Builder SDK Extensions for Teams
+// Bot Builder Microsoft Teams SDK GitHub
 // https://github.com/OfficeDev/BotBuilder-MicrosoftTeams
 //
 // Copyright (c) Microsoft Corporation
@@ -32,43 +30,25 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
-namespace Microsoft.Bot.Connector.Teams
-{
-    using System.Collections.Generic;
-    using Models;
-    using Microsoft.Bot.Schema;
+// General Information about an assembly is controlled through the following
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("Microsoft.Bot.Connector.Teams.NetCore")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyProduct("Microsoft.Bot.Connector.Teams.NetCore")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
 
-    /// <summary>
-    /// Event arguments for members removed event.
-    /// </summary>
-    /// <seealso cref="TeamEventBase" />
-    public class MembersRemovedEvent : TeamEventBase
-    {
-        /// <summary>
-        /// Gets the event type.
-        /// </summary>
-        public override TeamEventType EventType
-        {
-            get
-            {
-                return TeamEventType.MembersRemoved;
-            }
-        }
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
 
-        /// <summary>
-        /// Gets the members added.
-        /// </summary>
-        public IList<ChannelAccount> MembersRemoved { get; internal set; }
-
-        /// <summary>
-        /// Gets the team for the event.
-        /// </summary>
-        public override TeamInfo Team { get; internal set; }
-
-        /// <summary>
-        /// Gets the tenant for the team.
-        /// </summary>
-        public override TenantInfo Tenant { get; internal set; }
-    }
-}
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("9c9565fb-0ab6-4126-98b2-11d42fb8d54b")]

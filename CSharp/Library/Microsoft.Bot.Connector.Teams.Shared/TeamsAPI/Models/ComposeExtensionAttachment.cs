@@ -5,6 +5,7 @@
 namespace Microsoft.Bot.Connector.Teams.Models
 {
     using System.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Compose extension attachment.

@@ -16,6 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)CardExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConnectorClientExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConversationExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorHandling.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ErrorResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Error.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InnerHttpError.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConversationUpdate\ChannelCreatedEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConversationUpdate\ChannelDeletedEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ConversationUpdate\TeamEventBase.cs" />

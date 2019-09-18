@@ -44,6 +44,7 @@ namespace Microsoft.Bot.Connector.Teams.Tests
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using VisualStudio.TestTools.UnitTesting;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Custom card tests.

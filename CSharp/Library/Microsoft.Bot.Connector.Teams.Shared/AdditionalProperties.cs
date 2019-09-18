@@ -185,7 +185,7 @@ namespace Microsoft.Bot.Connector.Teams.Models
     public partial class FileConsentCardResponse
     {
         /// <summary>
-        /// Value of the <see cref="IInvokeActivity.Name"/> property of the invoke activity.
+        /// Value of the IInvokeActivity.Name property of the invoke activity.
         /// </summary>
         public const string InvokeName = "fileConsent/invoke";
 

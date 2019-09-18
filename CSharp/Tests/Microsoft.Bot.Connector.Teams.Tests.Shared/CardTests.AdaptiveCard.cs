@@ -41,6 +41,7 @@ namespace Microsoft.Bot.Connector.Teams.Tests
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json.Linq;
     using Newtonsoft.Json;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Adaptive card tests.
@@ -93,8 +94,8 @@ namespace Microsoft.Bot.Connector.Teams.Tests
         }
 
         /// <summary>
-        /// Test for adaptive card wrapping BotBuilder actions 
-        /// where action is wrapped by AdaptiveSubmitAction extension method RepresentAsBotBuilderAction() 
+        /// Test for adaptive card wrapping BotBuilder actions
+        /// where action is wrapped by AdaptiveSubmitAction extension method RepresentAsBotBuilderAction()
         /// that can represent itself as a BotBuilder action.
         /// </summary>
         [TestMethod]

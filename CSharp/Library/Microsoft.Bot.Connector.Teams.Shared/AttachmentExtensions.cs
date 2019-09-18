@@ -37,6 +37,7 @@ namespace Microsoft.Bot.Connector.Teams
 {
     using Microsoft.Bot.Connector.Teams.Models;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Attachment extensions.

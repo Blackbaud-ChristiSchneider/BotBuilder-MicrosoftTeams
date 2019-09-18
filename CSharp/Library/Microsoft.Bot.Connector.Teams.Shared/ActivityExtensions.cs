@@ -40,6 +40,7 @@ namespace Microsoft.Bot.Connector.Teams
     using System.Linq;
     using Models;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Location at which AtMention should be added in text.
@@ -179,10 +180,12 @@ namespace Microsoft.Bot.Connector.Teams
         /// </exception>
         public static TeamEventBase GetConversationUpdateData(this IConversationUpdateActivity activity)
         {
-            if (activity.GetActivityType() != ActivityTypes.ConversationUpdate)
-            {
-                throw new ArgumentException("activity must be a ConversationUpdate");
-            }
+            // TODO this is not available in bot framework 4
+            // https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.connector.activityextensions.getactivitytype?view=botbuilder-dotnet-3.0&viewFallbackFrom=botbuilder-dotnet-stable#Microsoft_Bot_Connector_ActivityExtensions_GetActivityType_Microsoft_Bot_Connector_IActivity_
+            // if (activity.GetActivityType() != ActivityTypes.ConversationUpdate)
+            // {
+            //     throw new ArgumentException("activity must be a ConversationUpdate");
+            // }
 
             if (activity.ChannelData != null)
             {

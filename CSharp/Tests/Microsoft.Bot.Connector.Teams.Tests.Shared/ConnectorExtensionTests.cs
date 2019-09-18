@@ -47,6 +47,7 @@ namespace Microsoft.Bot.Connector.Teams.Tests
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Connector extension tests.
@@ -103,7 +104,7 @@ namespace Microsoft.Bot.Connector.Teams.Tests
             });
 
             ConnectorClient conClient = new ConnectorClient(new Uri("https://testservice.com"), "Test", "Test", testDelegatingHandler);
-            Assert.IsTrue(conClient.Conversations.CreateOrGetDirectConversation(botAccount, userAccount, "TestTenantId").Id == "TestId");
+            Assert.IsTrue((await conClient.Conversations.CreateOrGetDirectConversation(botAccount, userAccount, "TestTenantId")).Id == "TestId");
         }
 
         /// <summary>

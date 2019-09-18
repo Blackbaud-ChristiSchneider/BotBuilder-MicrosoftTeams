@@ -37,6 +37,7 @@ namespace Microsoft.Bot.Connector.Teams
 {
     using System.Collections.Generic;
     using Models;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Event arguments for members added event.

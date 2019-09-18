@@ -48,6 +48,7 @@ namespace Microsoft.Bot.Connector.Teams.SampleBot.Shared
     using Microsoft.Bot.Connector.Teams.SampleBot.Controllers;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Common code for handling Bot Framework messages.
@@ -125,7 +126,7 @@ namespace Microsoft.Bot.Connector.Teams.SampleBot.Shared
             }
             else if (activity.Text.Contains("Create1on1"))
             {
-                var response = connectorClient.Conversations.CreateOrGetDirectConversation(activity.Recipient, activity.From, activity.GetTenantId());
+                var response = await connectorClient.Conversations.CreateOrGetDirectConversation(activity.Recipient, activity.From, activity.GetTenantId());
                 Activity newActivity = new Activity()
                 {
                     Text = "Hello",

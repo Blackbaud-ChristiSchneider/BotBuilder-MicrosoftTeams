@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build proj",
+      "group": "build",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceRoot}/Library/Microsoft.Bot.Connector.Teams.NetCore/Microsoft.Bot.Connector.Teams.NetCore.csproj"
+      ],
+      "problemMatcher": {
+        "base": "$msCompile",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}/Library/Microsoft.Bot.Connector.Teams.NetCore"
+        ]
+      }
+    },
+    {
+      "label": "build sln",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "type": "process",
+      "command": "dotnet",
+      "osx": {
+        "args": [
+          "build",
+          "${workspaceRoot}/Microsoft.Bot.Connector.Teams.NonWindows.sln"
+        ]
+      },
+      "windows": {
+        "args": [
+          "build",
+          "${workspaceRoot}/Microsoft.Bot.Connector.Teams.sln"
+        ]
+      },
+      "problemMatcher": {
+        "base": "$msCompile",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ]
+      }
+    }
+  ]
+}

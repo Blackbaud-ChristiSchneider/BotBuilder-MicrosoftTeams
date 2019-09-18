@@ -45,6 +45,7 @@ namespace Microsoft.Bot.Connector.Teams.Tests
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json;
     using Polly;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Retry helper tests.

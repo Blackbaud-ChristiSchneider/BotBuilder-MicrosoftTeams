@@ -42,6 +42,7 @@ namespace Microsoft.Bot.Connector
     using Microsoft.Rest;
     using Polly;
     using Polly.Retry;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Helpers to allow retrying operation.
@@ -56,7 +57,7 @@ namespace Microsoft.Bot.Connector
         /// <summary>
         /// The retry strategy map
         /// </summary>
-        private static Dictionary<IConversations, RetryPolicy> retryStrategyMap = new Dictionary<IConversations, RetryPolicy>();
+        private static Dictionary<IConversations, AsyncRetryPolicy> retryStrategyMap = new Dictionary<IConversations, AsyncRetryPolicy>();
 
         /// <summary>
         /// The random number generator.
@@ -66,7 +67,7 @@ namespace Microsoft.Bot.Connector
         /// <summary>
         /// The default retry policy in case one is not chosen by developer.
         /// </summary>
-        private static RetryPolicy defaultRetryPolicy = DefaultPolicyBuilder.WaitAndRetryAsync(
+        private static AsyncRetryPolicy defaultRetryPolicy = DefaultPolicyBuilder.WaitAndRetryAsync(
             5,
             (retrycount) =>
             {
@@ -110,7 +111,7 @@ namespace Microsoft.Bot.Connector
         /// </summary>
         /// <param name="connectorClient">The connector client.</param>
         /// <param name="retryPolicy">The retry policy.</param>
-        public static void SetRetryPolicy(this IConnectorClient connectorClient, RetryPolicy retryPolicy)
+        public static void SetRetryPolicy(this IConnectorClient connectorClient, AsyncRetryPolicy retryPolicy)
         {
             retryStrategyMap[connectorClient.Conversations] = retryPolicy;
         }
@@ -178,7 +179,7 @@ namespace Microsoft.Bot.Connector
             string conversationId,
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await ExecuteWithRetries(() => conversation.SendToConversationAsync(activity, conversationId, cancellationToken), conversation);
+            return await ExecuteWithRetries(() => conversation.SendToConversationAsync(conversationId, activity, cancellationToken), conversation);
         }
 
         /// <summary>
@@ -224,7 +225,7 @@ namespace Microsoft.Bot.Connector
         /// <returns>Task operation result.</returns>
         private static async Task<T> ExecuteWithRetries<T>(Func<Task<T>> func, IConversations conversation)
         {
-            RetryPolicy retryPolicy;
+            AsyncRetryPolicy retryPolicy;
             if (retryStrategyMap.TryGetValue(conversation, out retryPolicy))
             {
                 return await retryPolicy.ExecuteAsync(func);

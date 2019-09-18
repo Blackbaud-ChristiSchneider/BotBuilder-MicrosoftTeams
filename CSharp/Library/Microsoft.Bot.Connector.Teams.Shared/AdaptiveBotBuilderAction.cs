@@ -36,6 +36,7 @@
 namespace Microsoft.Bot.Connector.Teams
 {
     using Models;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Adapter class to represent BotBuilder card action as adaptive card action (in type of Action.Submit).

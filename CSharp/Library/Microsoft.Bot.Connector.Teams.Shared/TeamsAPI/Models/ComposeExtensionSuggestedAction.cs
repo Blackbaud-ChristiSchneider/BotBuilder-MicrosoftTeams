@@ -5,6 +5,7 @@
 namespace Microsoft.Bot.Connector.Teams.Models
 {
     using System.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Compose extension Actions (Only when type is auth or config)

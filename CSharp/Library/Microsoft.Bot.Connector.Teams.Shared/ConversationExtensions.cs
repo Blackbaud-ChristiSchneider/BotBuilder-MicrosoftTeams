@@ -43,6 +43,8 @@ namespace Microsoft.Bot.Connector.Teams
     using Microsoft.Bot.Connector.Teams.Models;
     using Microsoft.Rest;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Bot.Schema;
+    using Microsoft.Bot.Connector;
 
     /// <summary>
     /// Extension methods for existing IConversation operations.
@@ -61,7 +63,7 @@ namespace Microsoft.Bot.Connector.Teams
         {
             using (var memberList = await conversations.GetConversationMembersWithHttpMessagesAsync(conversationId).ConfigureAwait(false))
             {
-                var members = await memberList.HandleErrorAsync<ChannelAccount[]>().ConfigureAwait(false);
+                var members = await memberList.HandleErrorAsync<IList<ChannelAccount>>().ConfigureAwait(false);
                 return members.Select(member => member.AsTeamsChannelAccount()).ToArray();
             }
         }

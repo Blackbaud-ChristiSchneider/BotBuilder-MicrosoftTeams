@@ -41,6 +41,7 @@ namespace Microsoft.Bot.Connector.Teams.Tests.Shared
     using VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json;
     using System.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// TeamsChannelAccount tests

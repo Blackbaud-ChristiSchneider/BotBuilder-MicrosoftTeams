@@ -40,6 +40,7 @@ namespace Microsoft.Bot.Connector.Teams
     using System.Linq;
     using Models;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Internal class with common logic for tenant filtering.
